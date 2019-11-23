@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg="mpu9250_serial_to_imu" type="mpu9250_serial_to_imu_node" name="mpu9250_serial_to_imu_node" required="true">
+    <param name="port" value="/dev/ttyUSB0"/>
+  </node>
+
+</launch>
