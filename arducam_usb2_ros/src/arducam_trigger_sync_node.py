@@ -156,8 +156,9 @@ def time_subscriber_callback(time_data):
             if v_flip:
                 image = cv2.flip(image, 0)
             try:
-                img_msg = bridge.cv2_to_imgmsg(image, "bgr8")
-                exposure_time = rospy.Time.from_sec(0.01)
+                image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+                img_msg = bridge.cv2_to_imgmsg(image, "mono8")
+                exposure_time = rospy.Time.from_sec(0.005) #adding exposure time 10ms/2
                 img_msg.header.stamp.secs = time_data.header.stamp.secs + exposure_time.to_sec()
                 img_msg.header.stamp.nsecs = time_data.header.stamp.nsecs + exposure_time.to_nsec()
                 img_msg.header.seq = time_data.header.seq

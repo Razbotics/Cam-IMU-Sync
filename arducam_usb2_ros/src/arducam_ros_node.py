@@ -107,7 +107,7 @@ def camera_initFromFile(fialeName):
         usb_version = rtn_cfg['usbType']
         print "USB VERSION:",usb_version
         #config board param
-        configBoard(config["board_parameter"])
+        #configBoard(config["board_parameter"])
 
         if usb_version == ArducamSDK.USB_1 or usb_version == ArducamSDK.USB_2:
             configBoard(config["board_parameter_dev2"])
@@ -234,7 +234,7 @@ def rosShutdown():
 if __name__ == "__main__":
 
     rospy.init_node("arducam_ros_node")
-    pub = rospy.Publisher("arducam/camera/image_raw", Image, queue_size=1)
+    pub = rospy.Publisher("image_raw", Image, queue_size=1)
     pub_capture = rospy.Publisher("arducam/captured/camera/image_raw", Image, queue_size=1)
     bridge = CvBridge()
     try:
