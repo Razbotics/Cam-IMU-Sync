@@ -1,0 +1,15 @@
+<launch>
+
+        <arg name="camera_config" value="MT9V034_VGA.json" /> 
+        <arg name="horizontal_flip" value="false" /> 
+        <arg name="vertical_flip" value="false" />
+        <arg name="frame_id" value="cam" />
+
+        <node name="arducam_trigger_ros_node" pkg="arducam_usb2_ros" type="arducam_trigger_sync_node_mavros.py" output="screen">
+            <param name="config_file" value="$(find arducam_usb2_ros)/camera_config_files/$(arg camera_config)" />
+            <param name="horizontal_flip" value="$(arg horizontal_flip)" />
+            <param name="vertical_flip" value="$(arg vertical_flip)" />
+            <param name="frame_id" value="$(arg frame_id)" />
+        </node>
+
+</launch>
