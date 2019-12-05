@@ -15,6 +15,6 @@
             <param name="grayscale" value="$(arg gray_scale)" />
             <param name="cam_time_delay" value="$(arg cam_delay)" />
         </node>
-        <include file="$(find mavros)/launch/px4.launch"/>
+        <include file="$(find arducam_usb2_ros)/launch/px4.launch"/>
 
 </launch>
